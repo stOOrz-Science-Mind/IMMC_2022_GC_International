@@ -1,5 +1,14 @@
 # IMMC_2022_International
 
+Control Number: IMMC22768821
+
+Problem Chosen: N/A
+
+Title: N/A
+
+Results: N/A
+
+
 ## I. Above all are placed below the official websites and relavent rules:
 
 [Chinese Official](https://github.com/stOOrz-Mathematical-Modelling-Group/IMMC_2022_International)
