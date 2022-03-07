@@ -34,3 +34,13 @@ Results: N/A
 4. 前期尽量多个人搞模型，后期~~模拟~~编程和论文为主。论文请参与讨论，了解模型的总体方法。
 5. **论文注重加足量说明文字**（这点可以在搞模型的时候一并完成），如果太多还有删的余地。勿文模。
 6. 欢迎补充。
+
+## III. EMERGENCY.
+
+Due to the coronavirus outbreak, a large portion of the discussions will be conducted online. We genuinely hope that this period won't last long.
+
+Below is given the hyperlink and password to the TenCent Meeting Room:
+
+| Thesis   |    [Meeting Room from Wednesday to Thursday](https://meeting.tencent.com/dm/nTnuN6BHvFXT)    |
+|----------|--------|
+| Password | 681254 |
