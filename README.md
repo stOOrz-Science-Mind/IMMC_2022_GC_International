@@ -41,6 +41,6 @@ Due to the coronavirus outbreak, a large portion of the discussions will be cond
 
 Below is given the hyperlink and password to the TenCent Meeting Room:
 
-| Thesis   |    [Meeting Room from Wednesday to Thursday](https://meeting.tencent.com/dm/nTnuN6BHvFXT)    |
+| Thesis   |    [IMMC International Periodical Meeting](https://meeting.tencent.com/dm/JXgStJWoAZlV)    |
 |----------|--------|
-| Password | 681254 |
+| Password | 796135 |
