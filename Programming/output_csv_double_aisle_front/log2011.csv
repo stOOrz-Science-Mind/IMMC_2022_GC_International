@@ -1,0 +1,5 @@
+time_step,passenger_sequence,target_x,target_y,current_x,current_y,current_cell,state
+2012,121,5,4,4.5,3,{L},2
+2012,123,4,4,3.5000000000000018,3,{L},2
+2012,124,3,4,2.500000000000001,3,{L},2
+2012,125,2,4,1.5000000000000002,3,{L},2

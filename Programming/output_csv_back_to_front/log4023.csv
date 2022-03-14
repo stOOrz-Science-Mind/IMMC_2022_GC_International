@@ -1,0 +1,4 @@
+time_step,passenger_sequence,target_x,target_y,current_x,current_y,current_cell,state
+4024,185,11,3,5.566666666660517,0.0,26,0
+4024,187,3,1,2.599999999993737,0.0,29,2
+4024,188,4,3,0.9666666666603455,0.0,31,1
