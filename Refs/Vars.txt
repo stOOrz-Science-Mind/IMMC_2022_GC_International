@@ -1,0 +1,66 @@
+$$
+t_L=\text{标准放行李时间}
+\\
+P=\text{所有乘客的集合}=\left\{ A_1,...,A_N \right\} 
+\\
+N=\left| P \right|
+\\
+M=\text{过道单元格数}
+\\
+T=\text{模拟的总时刻数}=\frac{\text{实际时间}}{\tau _0/6}
+\\
+C\left( A,t \right) =t\text{时刻乘客}A\text{所在的单元格}
+\\
+P_v\left( A \right) =\text{前}D\text{个单元格中乘客的个数}\left( v\text{代表visible} \right) 
+\\
+S_i\left( A \right) =\text{乘客}A\text{在非静止状态下走过}i\text{个单元格所需要的单位时间份数}
+\\
+v_i\left( A \right) =\text{乘客}A\text{在非静止状态下在第}i\text{个单元格的速度}\left( \text{写进假设：在一个特定单元格中}v\text{是一个定值} \right) 
+\\
+\tau _i\left( A \right) =\text{乘客}A\text{在第}i\text{个单元格中花费的时间}
+\\
+v\left( A,t \right) =\text{乘客}A\text{在时刻}t\text{的速度}
+\\
+\text{显然有}v\left( A,t \right) =v_{C\left( A,t \right)}\left( A \right) 
+\\
+v_i\left( A \right) =v\left( A,S_i\left( A \right) \right) 
+\\
+d=\text{座椅纵向（前后）宽度}
+\\
+X\left( A,t \right) =\text{乘客}A\text{在}t\text{时刻走过的距离}
+\\
+\gamma \left( A \right) =\text{乘客}A\text{的不守规则指}\:\:\:\:\#\text{只会在放行李部分体现（}\gamma \text{越大，放行李越拖拖拉拉）}
+\\
+l_i\left( A \right) =\text{乘客}A\text{是否要在第}i\text{个过道单元格停下放行李（}l_i\left( A \right) =\left\{ 0—\text{不放，}1—\text{放} \right\} \text{）}
+\\
+\epsilon \left( A \right) =\text{乘客}A\text{等待让座的时间（可以完全根据初始排列算出来）}
+\\
+\psi \left( A \right) =\text{乘客}A\text{从停下放行李到坐下的总时间}
+\\
+\psi \left( A \right) =\max \left\{ \epsilon \left( A \right) ,\gamma \left( A \right) t_L \right\} 
+\\
+T\left( A \right) =\text{乘客}A\text{登机总时间}
+\\
+\Gamma =\text{登机总时间}
+\\
+
+\\
+P_v\left( A \right) =\left( 0,...0,\underset{D\:\mathrm{amount}\:\mathrm{of}\:1\mathrm{s}}{\underbrace{1,...,1}},0,...,0 \right) \times \left[ \sum_{A\in P}{\left( 0,...,0,\underset{\mathrm{the}\:C\left( A,t \right) ^{\mathrm{th}}\,\,\mathrm{position}\:\mathrm{from}\:\mathrm{top}\:\mathrm{to}\:\mathrm{bottom}}{\underbrace{1}},0,...,0 \right) ^{\top}} \right] 
+\\
+S_i\left( A \right) \xlongequal{\mathrm{def}}\sum_{j=1}^i{v_j\left( A \right)}>0
+\\
+C\left( A,t \right) =\min_{\begin{array}{c}
+	\frac{t}{S_i\left( A \right)}\le 1\\
+	1\le i\le M\\
+\end{array}} \left\{ i \right\} \text{可以考虑成}v\text{的一个线性组合}
+\\
+\text{最后可以表示成}v\left( A_l,t \right) =\frac{v_0}{E_l+\sum_{\alpha =1}^N{\left( \sum_{\beta =1}^T{\left( \lambda _{\alpha ,\beta}^{\left( l \right)}\cdot v\left( A_{\alpha},\beta \right) \right)} \right)}}\left( l\in \left\{ 1,2,...,N \right\} ,E_l\in \mathbb{R} \right) 
+\\
+\sum_{\alpha =1}^N{\left( \sum_{\beta =1}^T{\left( \lambda _{\alpha ,\beta}^{\left( l \right)}\cdot v\left( A_{\alpha},\beta \right) \right)} \right)}=\frac{v_0}{v\left( A_l,t \right)}-E_l\left( l\in \left\{ 1,2,...,N \right\} ,E_l\in \mathbb{R} \right) 
+\\
+\text{乘客}A\text{在第}i\text{个过道单元格中停留的时间}\tau _i\left( A \right) =v_i\left( A \right) +l_i\left( A \right) \cdot \psi \left( A \right) +\underset{\mathrm{whether}\:\:\mathrm{he}/\mathrm{she}\:\:\mathrm{needs}\:\:\mathrm{to}\:\:\mathrm{queue}}{\underbrace{\left( 1-l_i\left( A \right) \right) }}\cdot \psi \left( \mathrm{queuing}\:\:\mathrm{origin} \right) 
+\\
+T\left( A \right) =\sum_{i=1}^M{\tau _i\left( A \right)}\text{（若}A\text{根本没有走到，}\tau _i\left( A \right) =0\text{）}
+\\
+\Gamma =\max_{1\le i\le N} \left\{ T\left( A_i \right) \right\}
+$$
