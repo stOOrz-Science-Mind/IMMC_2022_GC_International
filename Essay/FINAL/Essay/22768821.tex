@@ -1,0 +1,974 @@
+\documentclass{article}
+\usepackage{allan}
+\usepackage{lastpage}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{indentfirst}
+%\RequirePackage{graphics}
+% Replace ABCDEF in the next line with your chosen problem
+% and replace 111111 with your Team Control Number
+% and replace abcdef with your Title
+% and replace 123456 with the number of pages of your essay
+\setlength{\headheight}{70pt}
+\newcommand{\Title}{Boarding and Disembarking a Plane}
+\newcommand{\Team}{22768821}
+\newcommand{\Problem}{}
+\def\mathbi#1{\textbf{\em #1}}
+%\newcommand{\itembf}{\item \textbf}
+\title{\Huge\textbf{\Title}}
+\author{Team\#\Team}
+\date{\today}
+\newcommand{\Lastpage}{20}
+
+\newcommand{\cA}{\color{allanblue}Constant A\color{black}}
+\newcommand{\cB}{\color{allandarkblue}Constant B\color{black}}
+\newcommand{\varr}{\color{allanpurple}Variable\color{black}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set up of theorems
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% setup of page length and script size
+
+\setlength{\belowcaptionskip}{3.7pt}
+\setlength{\abovecaptionskip}{4.7pt}
+\setlength{\headsep}{0.35in}
+\setlength{\headheight}{14.5pt}
+\setlength{\parindent}{2em}
+%\captionsetup{font={footnotesize}}
+\renewcommand{\baselinestretch}{1}
+%\setlength{\parskip}{0.28em}
+\geometry{bottom=1in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\lhead{
+%   \parbox{5cm}{
+%        \begin{center}
+%            Problem Chosen \\[0.2cm]
+%            \textbf{\Huge{A}}
+%        \end{center}
+%    }
+%}
+%\chead{
+%    \parbox{5cm}{
+%        \textbf{
+ %           \begin{center}
+%               2022 \\
+%                MCM \\
+%                Summary Sheet
+%            \end{center}
+%        }
+%    }
+%}
+%\rhead{
+%    \parbox{5cm}{
+%        \begin{center}
+%            Team Control Number \\[0.2cm]
+%            \textbf{\Huge{2226594}}
+%        \end{center}
+%    }
+%}
+\cfoot{}
+%IMMC Template
+\chead{
+    \parbox{5cm}{
+        \textbf{
+           \begin{center}
+				Team Control Number\\[10pt]
+				\textbf{\begin{Huge}\Team\end{Huge}}\\
+				%Problem Chosen\\
+				%\textbf{\Problem}\\
+                2022 \\
+                IMMC \\
+                Summary Sheet
+            \end{center}
+        }
+    }
+}
+
+\begin{document}
+	\normalfont\fontfamily{qpl}\selectfont
+    %\begin{center}
+    %    \textbf{\large Summary}
+
+    %\end{center}
+	%%%%%%%%%%% Begin Summary %%%%%%%%%%%%%%%%%%
+	% Enter your summary here replacing the (red) text
+	% Replace the text from here ...
+	\qquad
+	\par
+	~~
+	\\[1.5cm]
+
+	What is the best way of boarding? Why does the back-to-front boarding method, which is not the most efficient way, win the favor of both airline companies and passengers? When we look into the definition and realization of 'optimal', the idea is vague and ambiguous. To solve this issue and ultimately find the result, we'll establish a mathematical model about the boarding process and devise a rather novel way of finding the fastest solution based on our discrete-optimization model, which yields rather rational results and explains the 'strange' boarding strategies used by airlines.
+
+	To begin with, we considered the overall physical parameters related to boarding and ingeniously transformed those into linear algebraic factors so that the calculations between them can be easily calculated with scalar multiplication and correspondent vector calculations. Not only can this method simplify calculations, but it also means that the optimization process can also be achieved quickly. We created a 'parallelity' index to determine how efficient the boarding measures are. In the end, we found the quickest way to board a plane, which takes only about 19 minutes for a 189-seat single-aisle passenger plane. Due to its similarity to the 'Steffen Perfect' boarding method and its parallel nature, we name it the 'Steffen Sub-Perfect' method.
+
+	In addition, we'll also assess passengers' satisfaction and build a comprehensive evaluation process that will eventually indicate that the most practical model in reality is the back-to-front boarding method. In this boarding method, rows which are more likely to consist of people familiar with each other are kept together, minimizing the disparity in queuing positions. It's also shown that methods that save time, such as the 'Window-middle-aisle' method, performs poorly in the satisfaction part and therefore cannot be adopted.
+
+	Then, we slightly altered our model using the 'block-dividing' strategy so that it can also be used to deduce the boarding time of the two types of aircraft given: a 'square-like' Flying Wing and a double-aisle passenger plane. In search of the fastest strategy based on the previous models, we used the greedy algorithm and the respective mathematical proofs based on recurrence to detect this method, which takes about 27 minutes. Performed as an extension of the model, we applied this algorithm to the disembarking process and the optimal result turned out to be at about 12 minutes, and has a high satisfactory rate.
+
+	Last but not least, we performed a series of sensitivity analysis on the model. We altered passengers' physical attributes such as their luggage-stowing time and queue-jumping percentage based on the 'sigmoid function' in statistics, keeping track of the standard deviation and average of the altered parameter sets. The result turned out that those with 'stability' such as the relatively organized back-to-front boarding method are less sensitive to these disturbance factors than those with more degrees of freedom such as unstructured boarding.
+
+	In conclusion, though inefficient compared with many other possible boarding methods, back-to-front boarding is structured and fundamentally stable, minimizing the impacts of unexpected turbulence on the boarding process, therefore satisfying both passengers and airline companies with only a slight compromise of speed.
+
+
+	%end Summary
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% real document begins
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\clearpage
+    \pagenumbering{arabic}
+    \newpage
+    \pagestyle{empty}
+    \setlength{\headheight}{12pt}
+    \renewcommand{\headrulewidth}{0.5pt}
+    % \renewcommand{\headrulewidth}{5cm}
+    \renewcommand{\footrulewidth}{0.0pt}
+    \pagestyle{fancy}
+    \lhead{Team \#\Team}
+    \chead{\Title}
+    \rhead{Page \thepage\ of \Lastpage}
+    \cfoot{}
+    \lfoot{}
+    \rfoot{}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \clearpage
+    \thispagestyle{empty}
+    \tableofcontents
+    \newpage
+    \pagestyle{fancy}
+    \setcounter{page}{1}
+
+	\newpage
+	\section{Introduction}
+	\subsection{Background}
+	Time and efficiency play a vital role in air transportation. During normal passenger flights, sections which require a great amount of time include \defword{boarding} and \defword{disembarking} of passengers. Therefore, it's necessary to build a model which provides the best strategy for different plane types and on various occasions.
+
+	There are a variety of boarding and disembarking methods used by air companies now. In one plan, passengers appear in the plane with no plans devised in advance. In other strategies, passengers enter the plane according to their row numbers, seat positions or priority (E.g. first class \& economic class), etc. However, not all of the passengers obey the rules, so there emergency events occur from time to time.
+
+	While boarding a plane, passengers will first go to their assigned seat, put their luggage on the rack and then get seated. While a passenger stowing their bags, other travellers who are stuck behind in the queue and haven't reached their target seats should wait until the passenger finishes the process, resulting in a queue. The image below describes the process in which the passengers placing the bags cause a queue.
+
+
+	\begin{center}
+		\includegraphics[width=14cm]{chart.jpg}
+
+		\textit{Fig. 1 Boarding process of a specific passenger}
+	\end{center}
+
+	Moreover, it's important to note that if other seats have been occupied, its necessary for some passengers to stand up in order to provide unseated passengers with more space to reach their seat.
+
+	In contradiction to the boarding process, the main problem of the disembarking process is that passengers who are eager to get out the plane may block the plane while they are taking their carry-on bags. This requires careful planning so that they will not stop the passengers on the back rows from moving.
+	\subsection{Our Work}
+	In our model, we need to find out the best strategy which is efficient at every plane type and is not so sensitive to sudden changes. Therefore, our work is divided into 3 parts.
+	\begin{itemize}
+		\item Design a model which can calculate the time required to board and disembark when applied to all kinds of planes.
+		\item Improve the model considering different situations and emergency events and design a brief strategy based on the results of our model.
+		\item Apply the model to real-life planes and find out the best strategy which minimizes both the boarding and disembarking time and passenger satisfaction.
+	\end{itemize}
+	\subsection{General Assumptions}
+	\begin{enumerate}
+		\itembf{For each passenger, their luggage is put on the rack above them.}
+
+		Airlines usually ensure this fact to minimize unnecessary congestion.
+		\itembf{For a certain passenger, the time to lay down his luggage and the time to remove it is the same.}
+
+		This process can be mathematically acknowledged as \defword{reversible} (Consider when time relapses).
+		\itembf{The total width of a passenger and his luggage is similar to the width between rows.}
+
+		To provide the passengers with the best flying experience, the airline company needs to find a width between rows which will both satisfy the needs of people and maximize the plane's capacity.
+		\itembf{All passengers walk at the same speed on the aisles.}
+
+		Though there are energy difference caused by age and sex, there is slight difference of walking velocity when different passengers walk on a plane searching for their assigned seat. Therefore, we can neglect the difference and assume that all the passengers have the same ideal velocity.
+		\itembf{Passengers never go backward.}
+
+		Most passengers are concentrated on finding their seat most. Therefore, they seldom miss their way and try to move backward.
+		\itembf{First and business class passengers are prioritized with respect to those of the economic class.}
+
+		Although (according to the ultimate results displayed in our essay), this is not the best boarding strategy for any types of plane and passengers, letting distinguished guests board first will give these passengers a sense of \defword{satisfaction} and enlarge the airline company's income. Therefore, we took this fact into consideration to make our model more realistic.
+	\end{enumerate}
+	\section{Model A: Math Model and Optimization for Boarding and Disembarking}
+	\subsection{Model Overview}
+	In this part, we will assess the plane and get the formulae describing time consumption in boarding and disembarking. We define each seat as a block which has its own properties. All of the blocks belong to a coordinate divided according to the plane's overall arrangement. Later, we will get out the spent to move to these blocks also based on different moving conditions. We'll use these and the relevant optimization methods to derive the two types of \textit{best} solutions to airplane boarding schemes.
+	\subsection{Assumptions}
+	\begin{enumerate}
+		\itembf{The luggage racks are designed to be adequate for any reasonable amount of luggage.}
+
+		Consignment service is provided for the passengers before they enter the plane. Therefore, we can assume that there are enough space for the passengers to place smaller items, which means the space for storage is endless.
+		\itembf{In a certain cell, $v$ is a fixed value.}
+
+		Since $d$ (the width between rows, or the length of a cell) is taken as 0.8$\mathrm{m}$, a very small distance, there won't be a big difference in velocity change when a passenger is moving in the cell. Therefore, we can assume that $v$ in a certain block won't change.
+		\itembf{There is enough space in the aisle so that every passenger can walk at their maximum speed.}
+
+		To provide their customers with the best flying experience, flying agencies usually make the aisle wide enough.  Therefore, we can assume that there is enough space for the passengers to maintain their speed.
+	\end{enumerate}
+	\subsection{Notice}
+	In our model, we set \(\tau_0=1\mathrm{s}\) as the basic simulation unit, meaning that the model is also discrete. In an effort to standardize time and distance discretely, we make the following definitions in the rest of the model, (both \textit{time} and \textit{velocity} have no dimensions):
+	\begin{itemize}
+		\item \defword{time}:
+			For a period of \(t\,\mathrm{s}\) in \textit{SI}, we define the actual simulation time as \(t'=\dfrac{t}{\tau_0}\), which literally represents how many \(\tau_0\) s \(t\) consists of.
+		\item \defword{speed}:
+			While a speed measuring \(v\,\mathrm{m\cdot s^{-1}}\) in reality means that the object travels \(v\,\mathrm{m}\) in a second, we define \defword{velocity} \(v'\) as the amount of \defword{time} (the \textit{time} here refers to the one as defined above) that takes the object to move \(d\), i.e. the length of a \textit{cell}. Therefore we have the following relationship between the two types of speeds:\[v=\dfrac{d}{v'\cdot \tau_0}\,\left(\mathrm{m\cdot s^{-1}}\right)\]
+	\end{itemize}
+	\subsection{Notations}
+	We classify \textit{notations} into the following three types:
+	\begin{itemize}
+		\item \cA: won't change in the whole scope.
+		\item \cB: may change in the whole scope, but won't change for a fixed set of passengers and a set plane.
+		\item \varr: varies for different initial sequences of passengers.
+	\end{itemize}
+	\begin{center}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		$\tau_0$&simulation interval taken in our model, about \(1 \,\mathrm{s}\)&$\mathrm{s}$&\cA\\
+		\hline
+		\(\tau\)&simulation time step\(=\frac{\tau_0}{6}\)&\(\mathrm{s}\)&\cA\\
+		\hline
+		\(D\)&number of cells in the observable area, taken as \(4\,\left(\mathrm{persons}\right)\)&1&\cA\\
+		\hline
+		\(t\)&current time&1&\varr\\
+		\hline
+		$d$&width of each cell&$\mathrm{m}$&\cA\\
+		\hline
+		$N$&total number of passengers on the plane&1&\cB\\
+		\hline
+		$v_0$&maximum walking speed of a passenger aboard&1&\cA\\
+		\hline
+		$t_L (A)$&standard time for a passenger \(\approx 5\mathrm{s}\) $A$ to place his luggage&1&\cA\\
+		\hline
+		$t_s$&time for a passenger to horizontally move a seat's length&1&\cA\\
+		\hline
+		$P$&the set of all passengers&/&\cB\\
+		\hline
+		$M$&number of cells on aisles&1&\cB\\
+		\hline
+		$C\left( A,t \right)$&the cell passenger $A$ is located at time $t$&1&\varr\\
+		\hline
+		$P_v\left( A \right)$&number of passengers visible within $D$ blocks before him&1&\varr\\
+		\hline
+		$S_i\left( A \right)$&total time needed to pass the first $i$ cells& 1&\varr\\
+		\hline
+		$v_i\left( A \right)$&the speed of passenger $A$ in the \(i^{\mathrm{th}}\) cell&1&\varr\\
+		\hline
+		$\tau _i\left( A \right)$&the time passenger $A$ spent in the $i^\text{th}$ cell&1&\varr\\
+		\hline
+		$v\left( A,t \right)$&the speed of passenger $A$ at $t$&1&\varr\\
+		\hline
+		$\gamma \left( A \right)$&non-compliance index of \(A\)&1&\cB\\
+		\hline
+		$l_i\left( A \right)$&whether the passenger $A$ is placing his luggage \(\in\left\{0,1\right\}\)&1&\varr\\
+		\hline
+		$\varepsilon \left( A \right)$&the time passenger $A$ need to be offered the seat&1&\varr\\
+		\hline
+		$\psi \left( A \right)$&time passenger $A$ to seat after starting putting luggage&1&\varr\\
+		\hline
+		$T\left( A \right)$&total boarding time of passenger $A$&1&\varr\\
+		\hline
+		$\Gamma$ &total boarding time&1&\varr\\
+		\hline
+	\end{tabular}
+	\end{center}
+	\subsection{Building Our Model: Connections \& Links}
+	In this part, we mainly focus on how to describe the passengers. We separate the plane into a number of \defword{cells}. Each cell has several properties describing its location, type (such as seats and aisles) and other properties. In special kinds of planes where the seats are arranged in irregular graphics, we still add them to the matrix, but we will not put them into consideration when it comes to calculations.
+
+	First we will discuss the passenger's moving condition. To better describe the state of the seats, we define a simulating time step $\tau$, which equals $\dfrac{\tau_0}{6}$ ($\frac{1}{6}\mathrm{s}$). Under ideal circumstances, a passenger will move at a constant speed $v_0$. In our model, the smaller $v_0$ is, the faster the passenger travels.
+
+	\begin{center}
+		\includegraphics[width = 14cm]{cell_visualization.jpg}
+
+		\small\textit{Fig. 2 Construction of cells}
+	\end{center}
+
+	The following process will give the relationship solely between \(v\) in the aspect of both space and time.
+	\subsubsection{Step One: \(v\to P_v\)}
+	First, it's obvious that the more jammed a passenger is, the slower he or she moves. Therefore, it's important to first define \defword{density}.
+
+	We define \defword{density} as the ratio of the number of people in the visible area to the number of cells in that visibility region. On an airplane, we take \textit{the number of cells in a passenger's visibility region} as \(4\), meaning that cells farther than that have no effects on the passenger. We have:
+	\[\mathrm{Density\left(A\right)} = \dfrac{P_v\left(A\right)}{D}\]
+
+	And according to the widely-adopted Greenshields speed-density linear model \cite{greenshields}, \[\mathrm{congested\:speed} = \mathrm{normal\:speed}\cdot\left(1-\mathrm{Density\left(A\right)}\right)\]
+
+	By converting the physical \textit{velocity} into our unit, we have the following equation by definition:
+	\[v(A)=\begin{cases}\dfrac{v_0}{1-\mathrm{Density\left(A\right)}}=\dfrac{v_0}{1-\frac{P_v\left(A\right)}{D}}, \text{if the passenger ahead is walking}\\\infty, \text{the passenger ahead stops}\end{cases}\]
+
+	When \(v\left(A\right)=\infty\), the traditional way of calculation can no longer be used to calculate displacement. Therefore, we suppose that the passenger enters a state where he can't move until the person causing the queue gets seated. Currently we adopt the searching method to record that specific person, but later we will introduce a new concept \textit{cluster} to solve this problem.
+	 After calculations, we've got the relationship between velocity and density.
+	\subsubsection{Step Two: \(P_v\to \) Passenger Distribution}
+	There clearly is a pretty logical way of predicting all the positions each time and get the respective \(P_v\left(A\right)\) for every passenger. But in order to achieve this with pure mathematics, we introduce the \textit{existence} factor and the \textit{effective} factor, both of which are included in the vector. Only when these two both have an effect on the passenger \(A\) can the index \(P_v\left(A\right)\) be taken into consideration.
+
+	The first vector in the multiplication is the \textit{effective} factor, meaning that only people within the visibility range of \(A\) have an effect on him/her.
+
+	\begin{center}
+	\includegraphics[width = 11cm]{effective factor.jpg}
+
+	\small\textit{Fig. 3 The effective factor}
+	\end{center}
+
+	The second vector is the \textit{existance} factor, indicating whether there exists anyone in each cell, which is also the \(0-1\) distribution for the whole group of cells. It can also be calculated by simply adding all the positions together.
+	\[\text{Existance factor} = \text{Distribution of positions} = \sum\limits_{A\in P} \text{the position of }A\]
+
+	By multiplying these two, we get the formula of \(P_v\left( A \right)\):
+
+	$$P_v\left( A \right) =\left( 0,...0,\underset{D\:\mathrm{amount}\:\mathrm{of}\:1\mathrm{s}}{\underbrace{1,...,1}},0,...,0 \right) \times \left[ \sum_{A\in P}{\left( 0,...,0,\underset{\mathrm{the}\:C\left( A,t \right) ^{\mathrm{th}}\,\,\mathrm{position}\:\mathrm{from}\:\mathrm{top}\:\mathrm{to}\:\mathrm{bottom}}{\underbrace{1}},0,...,0 \right) ^{\top}} \right] $$
+	\subsubsection{Step Three: Passenger Distribution \(\to \) Individual \(v\)}
+	According to our assumptions, it's easy to find that every passenger will move more slowly than the passenger ahead of him when they are in two adjacent cells. Therefore, each initial sequence yields a distinctive position set.
+
+	We define \(S_i\left( A \right)\) as the time used to cover the distance of \(i\) cells:
+	$$S_i\left( A \right) \xlongequal{\mathrm{def}}\sum_{j=1}^i{v_j\left( A \right)}>0$$
+
+	With the formula above, it's easy to determine the current cell of \(A\):
+	$$C\left( A,t \right) =\min_{\substack{\frac{t}{S_i\left( A \right)}\le 1\\1\le i\le M\\}} \left\{ i \right\} $$
+	(In this model, $C(A,t)$ can be considered as a linear combination of $v$.)
+	\subsubsection{Final Step: \(v\to v\)}
+	Summing up the previous three parts, we can identify $v(A,t)$, which is demonstrated in the following formulae:
+	$$v\left( A_l,t \right) =\frac{v_0}{E_l+\sum\limits_{\alpha =1}^N{\left( \sum\limits_{\beta =1}^T{\left( \lambda _{\alpha ,\beta}^{\left( l \right)}\cdot v\left( A_{\alpha},\beta \right) \right)} \right)}}\left( l\in \left\{ 1,2,...,N \right\} ,E_l\in \mathbb{R} \right)$$
+	where
+	$$\sum_{\alpha =1}^N{\left( \sum_{\beta =1}^T{\left( \lambda _{\alpha ,\beta}^{\left( l \right)}\cdot v\left( A_{\alpha},\beta \right) \right)} \right)}=\frac{v_0}{v\left( A_l,t \right)}-E_l\left( l\in \left\{ 1,2,...,N \right\} ,E_l\in \mathbb{R} \right)$$
+	is a linear combination of the velocities, also indicating that with the set of all possible previous velocities given, we can use this recursion algorithm to calculate the velocity at the next time step. (Notice that not only process three but also the first two steps ensure linearity, and that the \(\lambda\,\)s are independent from the previous \(v\,\)s.)
+	\subsubsection{Putting Luggage and Offering Seats}
+	Next we calculate the time spent while one is trying to take his/her seat.
+	\begin{itemize}
+		\item \defword{\textbf{Stowing luggage.}}
+
+		The standard stowing time has already been given as \(t_L\). However, the time does not always remain unvariant. Due to the fact that different passengers bring different amounts of luggage aboard and that some passengers disobey boarding rules, we introduce a non-compliance index \(\gamma\left(A\right)\). The higher \(\gamma\left(A\right)\) is, the more time it takes \(A\) to stow his/her luggage.
+
+		Therefore, the overall time \(A\) consumed to stow his/her luggage equals:
+		\[\text{stowing time}=\gamma \left( A \right) t_L \]
+		\item \defword{\textbf{Getting seated.}}
+
+		In some strategies, passengers near the aisle have to stand up to let a new traveller get through. (In other strategies such as \textit{window middle aisle}, this scenario never occurs). We add a special property to each cell which determines whether the cell is being seated. When the passenger outside has been seated and the other two passengers inside come, the passenger needn't stand up twice to offer his seat. Therefore, we can describe the time spent in seating as:
+		$$t(1,k)=v_0$$
+		$$t(A,a)=\begin{cases}t(A-1,a+1),\text{there is a person on the $a+1$ block}\\v_0, \text{the \(a+1^{\mathrm{th}}\) block is empty}\end{cases}$$
+
+		To form equations, we adopt motional physics and according to our assumptions, the time consumed to offer seat is proportional to the distance one moves, which is then proportional to the number of seats separating one from the aisle.
+		\begin{center}
+		\includegraphics[width = 10cm]{offering a seat.jpg}
+
+		\small\textit{Fig. 4 Offering a seat}
+		\end{center}
+
+		So when he/she travels $x$ cells, the total time \(B\) consumed equals:
+		$$t(B)=x\cdot t_s \cdot \tau_0$$
+
+		And we take the maximum of the time to offer seats in this line as the total:
+		\[\text{time to offer seat}=\max\limits_{B\in \text{this line}}\left\{t(B)\right\} = \max\limits_{B\in \text{this line}}\left\{x_{B}\cdot t_s \cdot \tau_0\right\}\]
+
+		Once the passenger takes his/her seat, the cell on the aisle is no longer occupied, which ends the queuing process.
+	\end{itemize}
+	We introduce a special variable $l_i(A)$ to describe the passengers state. If he stops to place his luggage, \(l_i(A)=1\). Conversely, \(l_i(A)=0\). Below are given the two types of states of passenger \(A\):
+	\[\Xi_i\left(A\right)=\left( \begin{matrix}
+	l_i\left( A \right)&		\\
+	&		1-l_i\left( A \right)\\
+	\end{matrix} \right) \in \mathbb{R}^2\cap \left\{ \left( \begin{matrix}
+	0&		\\
+	&		1\\
+	\end{matrix} \right) ,\left( \begin{matrix}
+	1&		\\
+	&		0\\
+	\end{matrix} \right) \right\}\]
+
+	In additon, we define $\psi(A)$ to descibe the total time passenger $A$ spent from stopping placing his luggage to sitting down. It is clear that $\psi \left( A \right) =\max \left\{ \epsilon \left( A \right) ,\gamma \left( A \right) t_L \right\}$.
+
+	\subsubsection{Calculating Total Time}
+	Next, we calculate the total time a passenger spends in cell \(i\) with the previous parts combined. This can be done through adding those together. Therefore, we can define the time passenger $A$ spent in the $i^\text{th}$ cell as:
+	$$\tau _i\left( A \right) =v_i\left( A \right) +l_i\left( A \right) \cdot \psi \left( A \right) +\underset{\mathrm{whether}\:\:\mathrm{he}/\mathrm{she}\:\:\mathrm{needs}\:\:\mathrm{to}\:\:\mathrm{queue}}{\underbrace{\left( 1-l_i\left( A \right) \right) }}\cdot \psi \left( \mathrm{queuing}\:\:\mathrm{origin} \right)$$
+	or in other words:
+	\[\Xi _{\mathrm{full}\:\mathrm{state}}=\left( \begin{matrix}
+	v_i\left( A \right)&		\\
+	&		\Xi _i\left( A \right)\\
+	\end{matrix} \right) \times \left( \begin{matrix}
+	\text{whether moving}&		&		\\
+	&		\text{whether stowing}&		\\
+	&		&		\text{whether waiting}\\
+	\end{matrix} \right) \]
+
+	Finally, we can get the total time $A$ spent in boarding $T(A)$:
+	$$T\left( A \right) =\sum_{i=1}^M{\tau _i\left( A \right)}$$
+	(If $i$ is beyond \(A\)'s target, $\tau_i(A)=0$)
+
+	And by calculating the total boarding time of each passenger and put them in order, we can find out:
+	$$\Gamma =\max_{1\le i\le N} \left\{ T\left( A_i \right) \right\}$$
+	\subsection{Optimization: Which One is the Quickest?}
+	In this part, we'll use various mathematical methods to give the fastest possible boarding strategy.
+	\subsubsection{Parallel Boarding}
+	We noticed that the passengers in the rows in the left and those in the rows in the left wouldn't disrupt each other, for they do not share much space of the aisles. So a good strategy is to board some passengers in the left and some in the right at the same time. However, if we arrange the order strictly from the two sides to the middle, there would be too much queuing in the middle rows.
+
+	To reduce the queuing, we can first divide the aircraft into eight groups of seats, each of which contains three rows. Then, we can board passengers in group $n$ and group $n+4$ together. This would not cause much queuing, and can also maximize efficiency by \defword{parallel boarding}.
+
+	We define the \defword{parallelity index} \(r\) as the proportion of cells that are in the stowing state to the number of total aisle cells inside the plane: (In the first example, for instance, this total number equals \(33\).)
+	\[r\left(t\right) = \dfrac{\#\text{cells in stowing state}}{\#\text{cells inside the plane}}\ddef\dfrac{C_s}{C_p}\]
+
+	In intuition, the fastest strategy comes when everyone is blocked by one queuing origin each time, meaning that there may be \(C_s=C_p\) passengers stowing luggage but only costs a total of \(1\times t_L+o\left(1\right)\) amount of time, where \(o(1)\) is a constant relyin only on the passenger set and the plane type, which can greatly help reduce total time. To prove this, we use the attributes of discrete optimizations and get the aids from the computer.
+	\begin{center}
+		\includegraphics[height = 5cm]{discrete optimization.jpg}
+
+		\small\textit{Fig. 5 Discrete optimization}
+	\end{center}
+
+	\subsubsection{Computer-aided Optimization}
+	After adopting the discrete optimization model and with the \defword{parallel} nature, we get the following ideal boarding plans:
+
+	\begin{center}
+		\includegraphics[height =4cm]{steffen1.jpg}
+		\includegraphics[height = 4cm]{steffen2.jpg}
+
+		\small\textit{Fig. 6 Two ideal boarding plans}
+	\end{center}
+
+	\textbf{Note. }Later, we'll use our previous mathematical model to verify our solutions and also calculate the relavant \defword{satisfactory} index, which will be included in the subsequent section. Here, we present the calculated optimum in advance to display its parallelity.
+	\subsection{The Disembarking Process}
+	The conclusions drawn in the boarding model can also be applied to the disembarking process, where the only difference is that passengers can get their luggage while travellers in the prior sequence have just passed through the aisle.
+	\\ \\
+	\textbf{Claim 1.} On whatever occasions, the best strategy always comes when the aisle is consistently full (if possible in reality).
+	\\ \\
+	\textbf{Proof of Claim 1.} We use the idea of adjustment in our proof. Suppose at time \(t\), passengers in the queue range from \(B_1\) to \(B_x\), and that \(P_\mathrm{next}\) is a subsequent set of passengers starting from \(B_1\) and owns these properties:
+	\begin{enumerate}
+		\item \(P_{\mathrm{next}}=\left\{ B_1,...,B_y \right\} ,\,\,y\in \left\{ 1,2,...,x \right\} \), which means that \(P_{\mathrm{text}}\) contains a series of subsequent passengers starting from \(B_1\).
+		\item \(\forall i\in \left\{ 1,2,...,y-1 \right\} ,\:\:C\left( B_i,t \right) \:\mathrm{is}\:\mathrm{next}\:\mathrm{to}\:C\left( B_{i+1},t \right) \), meaning that the queue fits all the \(y\) squares starting from \(B_1\).
+		\item \(\mathrm{if}\:B_{y+1}\:\mathrm{exists},\:\mathrm{then}\:C\left( B_y,t \right) \:\mathrm{is}\:\mathrm{not}\:\mathrm{next}\:\mathrm{to}\:C\left( B_{y+1},t \right) \), meaning that \(P_{\mathrm{next}}\) is the longest \textit{sub-queue} which follows property \(2\).
+	\end{enumerate}
+
+	Now, if \(B_{y+1}\) doesn't exist, then we've proven our \textbf{Claim 1}. (because passengers can not get close any further since there is no space between them.) Suppose there exists \(B_{y+1}\), and according to property \(3\), we can assure that there certainly exists a time $\Delta\tau$ for \(B_{y+1}\) to get coincidenced with the cell right behind \(B_y\), covering distance \(\Delta d\). Now, as an ideological experiment, let's move passengers \(B_{y+1},B_{y+2},...,B_x\) foward by \(\Delta d\), and it's obvious that each passenger are saved \(\Delta \tau\) time needed to \textit{keep up with} the set \(P_{\mathrm{next}}\).
+
+	\begin{center}
+		\includegraphics[width = 14cm]{display of Delta tau.jpg}
+
+		\small\textit{Fig. 7 Visualization of the actions}
+	\end{center}
+
+	According to \textbf{Claim 1}, we can find that:
+	$$\text{the best disembarking strategy}\Leftrightarrow
+	\text{let all the passengers become a row}$$
+
+	So we can find that:
+	$$\Gamma_\text{disembarking}=\text{boarding time of a line of the same amount of passengers}+t_L(A)$$
+
+	Now the question comes to how to reorder the passengers. We let the passengers who sit near the passengers enter the aisle first. After the first people get the luggage, the people who sits next to him will get prepared to enter the aisle. To sum up, we can get the image below which best explains our strategy. And the strategy itself also ensures that the aisle is always \textit{positively} filled with passengers.
+
+	\begin{center}
+		\includegraphics[width=15cm]{disembarking.jpg}
+
+		\small \textit{Fig. 8 best disembarking strategy}
+	\end{center}
+
+	Substitutions into the queuing model suggests that the time for a passenger to travel from the back to the front is 2199 time steps. After adding it to the time used to bring his luggage, we can find that the total disembarking time of our strategy is \textbf{12 minutes and 18 seconds}, which is surprising but also reasonable since most of the time spent on retrieving luggage is saved while others are queuing.
+
+	\section{Model B: Reoptimizing the Strategy with Passenger Satisfaction}
+	\subsection{Model Overview}
+	In model A, we've found the pattern of the optimal model. However, it's also crucial to notice the fact that in this model, passengers in the same row are highly separated. This would, as a result, greatly increase the dissatisfaction among families where parents should have been placed adjacent to their children in the queue. Therefore, in \defword{Model B}, we'll comprehensively consider passengers' satisfaction and therefore yield the most \textit{user-friendly} boarding strategy.
+	\subsection{Notation}
+	\begin{center}
+	\begin{tabular}{|l|l|}
+		\hline
+		$\alpha_\text{satisfy}(A)$&satisfactory index of passenger $A$\\
+		\hline
+		$\alpha$&satisfactory index of a whole plan\\
+		\hline
+		$k_1$, $k_2$, $k_3$&constants describing the weight of each factor\\
+		\hline
+		$D_i$&standard variance of the boarding time of the passenger whose seat is in the $i^\text{th}$ row\\
+		\hline
+		\(\xi\left(A\right)\) & the total time passenger A needs to offer his/her seat\\
+		\hline
+	\end{tabular}
+	\end{center}
+	\subsection{The Satisfactory Index}
+	In this part, we mainly dicuss which methods can best satsify the passengers.
+
+	\begin{itemize}
+		\item \defword{Queuing}: The longer a passenger stays in a queue, the less satisfied he is.
+		\item \defword{Offering one's seat}: The passenger who sits near the aisle will be especially dissatisfied when people who sit near the window ask for his offering seat.
+		\item \defword{Walking}: With luggages with him, walking a long distance in the plane will make the passengers impatient. The more he walks, the worse his mood will get.
+	\end{itemize}
+	To make our result more precise, we define a series of constants ($k_1$, $k_2$ and $k_3$) to determine the factors' weight. To standardize our calculations, we take $k_1$ as the criteria number 1. As mentioned above, passengers will get angry when they are offering their seat and this will have a dramatic effect on the passenger's satisfactory degree, and long distance of walking will also have more effect on a person's mood. By looking into the order of magnitude and past experience, we set \(k_2\) as \(250\) and \(k_3\) as \(10\).
+	Together we find out the definition of satisfactory factory of a certain passenger, which is:
+
+	$$\alpha_\text{satisfy}(A)=k_1\cdot \tau_j(A)+k_2\cdot\xi\left(A\right)+k_3\cdot D_i$$
+	The re-weighed indexes and the correspondent \(\alpha_{\mathrm{satisfy}}\,\)s are shown below.
+	\begin{center}
+		\includegraphics[width = 17cm]{random satis.png}
+
+		\small\textit{Fig. 9 \(\alpha_{\mathrm{satisfy}}\) in random boarding}
+	\end{center}
+	To sum up, we can get the satisfactory index of a whole plan. The bigger $\alpha$ is, the less satisfied the passengers are and the less possible the plan can be applied to daily life.
+	$$\alpha=\dfrac{\sum\limits_{A\in P} \alpha_\text{satisfy}(A)}{N}$$
+	In this case, \(\alpha\) equals \(1222.25\) in random boarding.
+
+	\subsection{Analysis of Different Ways of Boarding}
+	In this part, we will introduce some common ways of boarding and find out their efficiencies based on the $\Gamma$ and $\alpha_\text{satisfy}$ of it. The picture below shows the plane we use to assess the boarding process.
+
+	\subsubsection{Analysis of Conventional Boarding Methods}
+	The first method is based on row numbers. People enter the plane according to their row number. The plane is divided into several crosswide sections.or example, in one plan, a passenger with a smaller row number can be seated earlier and in other plane, he will enter later. We conclude these types as "front to back" and "back to front".
+
+	The second method is to board on plane according to their seat positions. The plane is divided into lengthways sections in this strategy. This time, passengers whose seats are A or F may enter the plane first to minimize the time wasted in offering seats.
+
+	The third method, window-middle-aisle boarding, lets passengers board according to an inner-to-outer sequence. We subdivide this method into another three forms: random, front to back, and back to front, which respectively indicate the boarding sequence in each \textit{window, middle or aisle} section. This plan can effectively reduce the total disembarking time as people no longer need to worry about offering their seat to others. Although it may make people unsatisfied (the reason will be introduced in the next model), it does save time.
+
+	Another way of boarding is letting the passengers get onboard in an unstructured way, which means that the boarding order is random. The picture below shows the whole process of this boarding method.
+
+	The four pictures below can effectively explain the methods.
+
+	\begin{center}
+		\includegraphics[height=3.7cm]{planerow1.jpg}
+		\includegraphics[height=3.7cm]{planerow2.jpg}
+		\includegraphics[height=3.7cm]{wdmd.jpg}
+		\includegraphics[height=3.7cm]{planerandom.jpg}
+
+		\small \textit{Fig. 10-13 Left \(\to\) Right: Back-to-front, Front-to-back, window-middle-aisle, and random boarding}
+	\end{center}
+	\subsubsection{Yielding Results}
+
+	By substituting the data of the strategy back into our previous model, we can draw a table to compare $\Gamma$ and $\alpha_\text{satisfy}$.
+
+	\begin{center}
+	\begin{tabular}{l|l|l}
+		\hline
+		Boarding type&Time steps required&$\alpha_\text{satisfy}$\\
+		\hline
+		From front to back&5029&938.82\\
+		From back to front&4092&854.01\\
+		Random Window middle aisle&4347&1207.81\\
+		Back-to-front Window middle aisle&4120&1482.14\\
+		Front-to-back Window middle aisle&4398&1501.17\\
+		Random Boarding&4409&1222.25\\
+		\hline
+	\end{tabular}
+	\end{center}
+	From this we can find that, boarding from front to back needs the maximum time, which means that it may not be so reasonable when applied to daily life. Boarding from back to front, on the other hand, is the most  efficient time. However, it's easy to find that the difference between the three latter methods is not significant, which we will explore further in \defword{Sensitivity Analysis}.
+
+	Apart from the common ways used by air executives introduced above, we also figure out some plans of our own and proposed by others. They all share one feature in common: \textbf{fast total boarding speed} and \textbf{high parallelity}.
+	\begin{itemize}
+		\item The first plan introduced is the Steffen Perfect\cite{steffen}. In this mode,  passengers will board the plane from the inner seat to the outer seat, from the rear to the front and in separate rows. Because the passengers sitting on the back and inside board first, there will be no queuing caused by the luggage of the front passengers and the situation that the outer passengers give up their seats for the inner passengers, which effectively reduces the waste of time caused by congestion and seat giving. At the same time, when boarding, passengers who put their luggage generally need to occupy the aisle next to two rows of seats. Therefore, it can be proved that sitting in separate rows is a seating method with the highest parallel efficiency, which can allow the most passengers to sit in parallel. Taken together, this shows that Steffen Perfect is a great boarding strategy.
+
+		\item Another optimal boarding strategy is to divide the plane into five parts (demonstrated in the picture below). This strategy combines all the strengths together: it can perfectly reduce the time of offering seats, queuing and raise the passenger's satisfactory index. However, this may also lead to some other problems.
+
+		\begin{center}
+			\includegraphics[height = 4.5cm]{stf_perfect.jpg}
+			\includegraphics[height=4.5cm]{planeown.jpg}
+			\includegraphics[height = 4.5cm]{stf_subperfect.jpg}
+
+			\small\textit{Fig. 14-16 Steffen Perfect, Boarding by section \& Steffen Sub-perfect}
+		\end{center}
+
+		\item The third plan, which is what our \textbf{optimization model} suggests, is what we name as \defword{Steffen Sub-perfect} due to its similarity to the \defword{Steffen Perfect} boarding method. However, the biggest difference is that the passengers in the same row would not board together. Instead, the passengers in the upper and downer part would alternately board. Because of the similarity, it is also an optimized strategy. In fact, according to computer simulation, it's even a bit faster than Steffen perfect.
+	\end{itemize}
+	Now we plot all the suggested methods below in one plot. It shows the relationship of total number of seated passengers with the time step \(t\).
+	\begin{center}
+		\includegraphics[width = 14cm]{speed graphs on various types.jpg}
+
+		\small\textit{Fig. 17 Time step comparison on different types of boarding strategies}
+	\end{center}
+	It's clear that the steffen sub-perfect model, which was devised by our optimization method, turns out to be the fastest strategy due to its high degree of parallelity. However, in this method, passengers in the same row are separated, therefore leading to a rather high \(\alpha_{\mathrm{satisfy}}\approx 1383.59\). What's more, the Steffen perfect method has a \(\alpha_{\mathrm{satisfy}}\) as high as \(1415.09\). Therefore we can see that both schemes sacrifice passengers' satisfaction for excessive efficiency.
+
+	On the other hand, as previously mentioned, back-to-front and window-to-aisle are two great plans of boarding. Therefore, we decided to combine them and divide the back-to-front sections smaller. To be exact, the sections are rows, and now the passengers enter with sorted sequence. This is also our \textbf{compromised} result for the most satisfying boarding plan.
+
+	\section{Sensitivity Analysis}
+	When we carry out the boarding and disembarking strategy, there would always be passengers who do not follow the prescribed method. Obviously, their existence would cause a decrease in the efficiency and other passengers' satisfaction. And it's also obvious that the impact would be larger if there are more people who do not follow the rules or there are people who disobey the methods to a large extent. Therefore, we need to make sure how much "destruction" they will cause to the boarding process.
+
+	To define the effect, we introduce a variable $\alpha_\text{discompliance}$. It will define a certain passenger's behavior and it's generated randomly by programs. This can make our result more accurate.
+
+	Since we've found that the dissatisfaction index of the lengthways method is too high. We suppose that it's is not appropriate for air companies. Therefore, we will mainly focus on the other three methods.
+	\subsection{Notations}
+	\begin{center}
+	\begin{tabular}{|l|l|}
+		\hline
+			$\alpha_\text{discompliance}(A)$ & the ratio of passenger \(A\)'s luggage-stowing time to \(t_L\) \\
+		\hline
+			\(x_{\mathrm{random}}\) & generated set of random data \\
+		\hline
+			\(s_x\) & standard variation of \(x_{\mathrm{random}}\) \\
+		\hline
+			\(A_x\) & average of \(x_{\mathrm{random}}\) \\
+		\hline
+	\end{tabular}
+	\end{center}
+	\subsection{Case 1: Longer Stowing Time}
+	In this part, we'll mainly display the effects that longer stowing time will have on our results. In order to make our results more realistic, we used the translated form of the \defword{sigmoid function} widely used in statistics to generate the list of $\alpha_\text{discompliance}(A)\,$s:
+	\[\sigma \left( x \right) =-\frac{1}{1+e^{-x}}\xrightarrow{\mathrm{translation}+\mathrm{random}}\sigma '\left( x \right)  \]
+	where we added \(x_{\mathrm{random}}\) to add a degree of freedom to the \textit{sigmoid} data generated.
+	\begin{center}
+		\includegraphics[height = 5.5cm]{sigmoid non compliance.png}
+
+		\small\textit{Fig. 18 Generated random sigmoid non-compliance factor}
+	\end{center}
+	Meanwhile, we keep track of the standard variation \(s_x\) and the average \(A_x\) of all data in the set \(x_{\mathrm{random}}\). In order to serve as a \defword{disturbance} factor in our model, we let \(t'_L(A) = \alpha_\text{discompliance}(A)t_L\) and yield respective results. The diagrams are shown below:
+
+	\begin{center}
+		\includegraphics[height = 5cm]{avetimesteps random fitted.jpg}
+		\includegraphics[height = 5cm]{avetimesteps ftb fitted.jpg}
+		\includegraphics[height = 5cm]{variance and timesteps btf.jpg}
+
+		\small\textit{Fig. 19-21 Plot of time steps to \(A_x\)}
+	\end{center}
+
+
+	Similarly, we conduct analysis on the standard variance \(s_x\) of the discompliance factor:
+
+	\begin{center}
+		\includegraphics[height = 5cm]{variance and timesteps random fitted.jpg}
+		\includegraphics[height = 5cm]{variance and timesteps ftb fitted.jpg}
+		\includegraphics[height = 5cm]{avetimesteps btf.jpg}
+
+		\small\textit{Fig. 22-24 Plot of time steps to \(s_x\)}
+	\end{center}
+
+	\begin{center}
+		\begin{tabular}{l|l|c}
+			\hline
+			\multicolumn{1}{c|}{Boarding Type}     & \multicolumn{1}{c|}{Subtype} & \multicolumn{1}{c}{R-square of fitting} \\ \hline
+			\multicolumn{1}{c|}{Average}           & front to back                & 0.9976                                                          \\ \cline{2-3}
+												   & back to front                & 0.9981                                                          \\ \cline{2-3}
+												   & random                       & 0.9291                                                          \\ \hline
+			\multicolumn{1}{c|}{Standard Variance} & front to back                & 0.9974                                                          \\ \cline{2-3}
+												   & back to front                & 0.9986                                                          \\ \cline{2-3}
+												   & random                       & 0.9900                                                          \\ \hline
+		\end{tabular}
+	\end{center}
+
+	From the graphics above, we can clearly see that in the random boarding case, there's a larger variance between the data. In other words, the change in luggage stowing time of passengers have a large impact on the total boarding time, and the impact has also been exaggerated by the system's inherent randomness. On the other hand, during front-to-back boarding, the data seem to approximately gather around a certain exponential curve, meaning that the total time is more predictable, thus less sensitive to sudden increase in luggage stowing time.
+
+	\subsection{Case 2: Queue Jumping}
+	Another aspect of passengers' \textit{discompliance} is when they don't exactly follow the prescribed boarding sequence. Each time, we randomly select a certain number \(z\) of passengers and also randomly swap their sequence in the queue. After repeating this process several times, take the average as the \defword{queue jumping time} with \(z\) passengers' sequence changed in the overall process.
+
+	As for unstructured ways such as random boarding, this \textit{queue-jumping} action only has a tiny effect on the total boarding time, as the system itself is already randomly designed. Therefore, we only conducted sensitivity analysis on the other two types of boarding strategies, and the results are shown below:
+	\begin{center}
+		\includegraphics[height = 5cm]{changesq btf.jpg}
+		\includegraphics[height = 5cm]{changesq ftb.jpg}
+
+		\small\textit{Fig. 25-26 Queue-jumping analysis: back-to-front \& front-to-back}
+	\end{center}
+
+	From the diagrams above, we can see that there is no clear pattern predicting the change in time steps that queue-jumping would bring to these two approaches. Therefore, it can be inferred that queue-jumping has a great impact on structured boarding systems.
+
+
+	\subsection{Case 3: Fewer Passengers}
+	Nowadays, because of various reasons such as the pandemic, the maximum number of passengers to board a plane may be limited, for example, 30\%, 50\% or 70\% of the maximum capacity. In order to make our simulations as realistic as possible, we randomly select sequences from the whole set \(P\) of passengers and removed them from the list, without altering any other relavant parameters. We also conducted our random selection several times and took the average of the results. Again, we plot the total time steps as below:
+
+	\begin{center}
+		\includegraphics[height = 4cm]{reduce btf.jpg}
+		\includegraphics[height = 4cm]{reduce ftb.jpg}
+		\includegraphics[height = 4cm]{reduce random.jpg}
+
+		\small\textit{Fig. 27-29 Reduction of passengers: back to front, front to back \& random boarding}
+	\end{center}
+
+	From the results above, we can see that in random boarding, the points are farther away from each other under each scenario, indicating that the result becomes less predictable when boarding is unstructured. Therefore, back-to-front boarding still remains the most comprehensively satisfactory and speedy strategy for the boarding of the three types of planes. When it comes to disembarking, since our previous solutions do not rely on the passenger distribution, the optimal strategy won't change.
+	\subsection{Conclusions}
+	From this we can find the following facts:
+	\begin{enumerate}
+		\itembf{Boarding randomly is far more sensitive than boarding from front to back.}
+
+		This may be because the former has no order. Under this circumstance, any uninstructed behavior will disrupt the whole process more that the effect on the latter one. Therefore, a good strategy should maximize satisfaction while controlling its degree of freedom at the same time.
+		\itembf{On the whole, back-to-front boarding performs best.}
+
+		It's easy to see from the data we've got that back-to-front and front-to-back has the lowest standard variations. However, since back-to-front boarding has a higher \(\alpha_{\mathrm{satisfy}}\) and faster speed, it can be inferred that this kind of boarding ultimately outperforms the other methods.
+	\end{enumerate}
+	%\begin{center}
+		%\includegraphics[width=6cm]{sigmoid.png}
+
+		%\small \textit{Fig. }
+	%\end{center}
+	\section{Model C: Applying to Other Aircrafts}
+
+
+	\subsection{Model Overview}
+	In previous models, we've already given the universal calculating method for all planes. However, the optimization process is restricted to the single-aisle plane. Therefore, in this model, we will modify our optimization scheme and extend it to two other types of planes given in the problem: the \defword{Flying Wing} and a \defword{double-entrance, double-aisle} aircraft. Similarly, we'll also give the best boarding strategy to these two kinds of planes.
+	\subsection{Notations}
+	\begin{center}
+	\begin{tabular}{|l|l|}
+		\hline
+		$\sigma_i$&the best strategy for section $i$\\
+		\hline
+		$A_{i,j}$&passenger $A$ whose seat is in $\left(i,j\right)$\\
+		\hline
+		$\eta_i(t)$&efficiency of $L_i$ at $t$\\
+		\hline
+		$\alpha_\text{loaded}$&loaded index\\
+		\hline
+	\end{tabular}
+	\end{center}
+	% \subsection{Short Passenger Cabin}
+	% The problem of not having enough space for aisles is actually easy to solve. Same as the disembarking process, if all the passengers are put into order and are stuffed in the aisle. Thier speed won't be affected. Moreover, we can find that the whole lengths of this plane has been reduced, which means $T(A)$ won't change dramatically. The only difference may be the seats have been narrower, which means $\varepsilon(A)$ has decreased. Therfore, we can without doubt use the same strategy as the normal plane types.
+	\subsection{The Flying Wing Aircraft}
+	Unlike regular passenger aircrafts, the Flying Wing is wide and flat in shape, with \(4\) aisles in total, which makes it necessary to effectively utilize all the aisles at the same time.
+
+	\subsubsection{Approximation and Division of Blocks}
+
+	\begin{center}
+		\includegraphics[width=12cm]{flyingwings.jpg}
+
+		\small \textit{Fig. 30 Flying Wings}
+	\end{center}
+
+	As shown in the graph above, we follow the original design and divide the plane into four \defword{blocks} (or \defword{sections}), which we name as \(L_1,\ldots,L_4\). On the upper-right corner of the plane, we approximated the straight passage way into a rectangular turn, therefore enlarging the total distance \(s\). However, if we calculate the total increase in distance, we get:
+	$$\left| s_{\mathrm{prev}}-s_{\mathrm{now}} \right|=\left| d\sqrt{x^2+\left( \frac{7}{2}d \right) ^2}-\left( x+\frac{7}{2}d \right) d \right|\\\le \left| d\sqrt{l^2+\left( \frac{7}{2}d \right) ^2}-\left( l+\frac{7}{2}d \right) d \right|\\=\frac{18-2\sqrt{53}}{5}\approx 0.688\mathrm{m}\\$$
+
+	which is smaller than the distance covered in one second, and therefore this approximation is reasonable. We name the top front passage way the \defword{main aisle} and the other four aisles in each section \defword{block aisles}.
+
+	As can be seen in the graphics, we divide the plane into four parts and we will calculate the time used seperately. In one certain section, we define the set of passengers $P_i=\left\{A_{1,1},A_{2,2},A_{3,3}......A_{i,M_i}\right\}$. It's clear that every part is independent and order-preserving, which means that the best plane can only be affected by the passengers' condition for any initial interval. Therefore, if we define \(\sigma_i\) as the optimal strategy for block \(L_i\), then \(\sigma_i\) can be uniquely determined by the initial sequence:
+	\[\sigma_i (\rho_i): \left\{1,..., \left|P_i\right|\right\}\xrightarrow{\sigma_i} \left\{1,..., \left|P_i\right| \right\}\]
+
+	which means that passenger $A_{i,j}$ will have the order number in $\sigma_i (j)$. ($i=1,...S, j=1, \left|P_i \right|=M_i$)
+
+	\begin{center}
+		\includegraphics[width = 10cm]{deltad.jpg}
+
+		\small\textit{Fig. 31 coordinate system for the Flying Wing}
+	\end{center}
+
+	\subsubsection{Analysis}
+	As a medium for optimization, we introduce $\eta_i (t)$ to assess the efficiency of $L_i$ at $t$. Now we'll introduce the factors that affect \(\eta_i (t)\)
+	\begin{itemize}
+		\itembf{The main aisle cells occupied in queuing state.}
+			The main aisle cell acts as the heart of the whole plane, meaning that any congestion in the main aisle is more likely to cause a \textit{fullstop} than congestions in the block aisles. Therefore, the higher this number is, the less efficient the system is. (\(\eta_i \downarrow\))
+		\itembf{The block aisle cells occupied in queuing state.}
+		\itembf{\(r_i\) (parallelity)}
+			As proven before, the higher \(r_i\) is, the more efficient the system will be. (\(\eta_i \uparrow\))
+	\end{itemize}
+
+	According to this standard, we propsoed a claim as below: \\ \\
+
+	\textbf{Claim 2.} While the main cells occupied is the same, if the gaps between queuing passengers \(\Delta d(t)\) keep the same or decrease (\(-\downarrow\)), then \(\eta_i(t)\) won't decrease (\(-\uparrow\)).
+
+	\textbf{Proof of Claim 2.} It can be proven with the same idea of step-by-step adjustments and analysis as introduced in \textbf{Claim 1}.
+
+	\textbf{Corollary.} The ideal solution comes when the aisles are filled with passengers. (Equivalent to the extreme scenario in \textbf{Claim 2} when the queuing gap decreases to the smallest possible.)
+
+	\begin{center}
+		\includegraphics[height = 4cm]{fw scheme.jpg}
+
+		\small\textit{Fig. 32 Ideal scheme for the Flying Wing}
+	\end{center}
+
+	Therefore, our optimization of the Flying Wing can be simplified by the following steps:
+	\begin{enumerate}
+		\item Determine the regional best solution (the optimal boarding process for each block \(L_1 \ldots L_4\)).
+		\item Determine a solution to keep the main aisle filled with people.
+	\end{enumerate}
+	For part 1, we've already found in our previous models that our scheme \textbf{Steffen Sub-perfect} is the universally most efficient way of boarding. Therefore, after combining all the processes together, we use the greedy algorithm to find the best strategy, which will be shown on the next page: (With the two claims, it's adequate to prove that this is the optimal strategy.)
+
+	\begin{center}
+		\includegraphics[width = 14cm]{ideal scheme for fw.jpg}
+
+		\small\textit{Fig. 33 Optimization result}
+	\end{center}
+
+	\begin{algorithm}
+		\caption{seat}
+		\begin{algorithmic}
+			\STATE \# based on "back to front"
+			\STATE \# initialize the index of the aisle blocks
+			\FOR {an aisle block (x,y)}
+			\STATE should\_occupied[x,y] = the line that block (x,y) is in \# initialize the blocks' lines
+			\STATE occupied[x,y,0] = 0 \# not occupied, the third index 0 refers to the time
+			\STATE \# first step: let in passengers to fill all the aisles
+			\ENDFOR
+			\WHILE {not all aisles are occupied by designated passengers \# there are reserved passengers}
+			\STATE fill in the aisle blocks in the sequence of line 4 to line 1
+			\ENDWHILE
+			\WHILE {not all passengers are seated}
+			\IF {someone has become seated}
+			\STATE fill in equivalent passengers with the same line as the seated passengers
+			\ENDIF
+			\STATE update passenger status according to the assumptions and strategies
+			\STATE update time
+			\STATE update the occupation status of the aisle blocks
+			\STATE \# Because of the existence of reserved passengers, the mobility of the central aisle could be increased, and as a result increasing the parallelism.
+			\ENDWHILE
+		\end{algorithmic}
+	\end{algorithm}
+
+	\subsubsection{Results of the Boarding and Disembarking Process}
+	By applying the algorithm into our model, we get that the fastest time to board a Flying Wing is 4826 time steps, which is about 26 minutes and 48.67 seconds. As for the disembarking process, we adopt the same measures as previously discussed in model A. Again, the disembarking process is equivalent to
+	\[\Gamma_{\text{disembarking}}=t_L+\text{318 people queuing in a row}\]
+	which is about 20 minutes and 54 seconds.
+
+	\subsection{Two-Entrance, Two-Aisle Passenger Aircraft}
+	In the Two-Entrance-Two-Aisle Plane, we found that the seats aren't standardly organized (the DEF seats at row 24 even seem to be at row 25). Therefore, we reorganized the seats into our cells, as mentioned and modeled above. Due to the assumption that passengers in better classes enter first, we first open the front entrance to let business passengers in (rows 1-3). To be exact, each aisle will have half of the passengers flow and we can divide the business class into two "2+1" single-aisle aircraft and apply on our models mentioned above. As there are not many passengers in the Business Class, different ways of boarding will not cause big difference in the total boarding time.
+
+	Next, we consider the economy class. We recognized that rows 25 and 26 are missing D, E and F, so we simply turned them into walls to ensure the simplicity of the aircraft model. However, while dividing the aircraft into the "front half" and the "latter half", we will still consider these walls as "seats with no passengers", as the walking distance in the aisle may cause big difference to the whole time used. We will use row 30 as the division row (the mean of 12 and 47) while applying it to the front half to equal the passengers the best.
+
+	\begin{center}
+		\includegraphics[width=14cm]{whole.jpg}
+
+		\small \textit{Fig. 34 Division of two entrance, two aisle plane}
+	\end{center}
+
+	Dividing each half into two parts, "upper part" and "lower part" is not an easy thing to do, as in the middle, the seats are not symmetric - D, E, F make an odd number. To maximize the equality of the two parts, we decided to assign passengers in odd rows to the upper part while passengers in even rows to the lower part.
+
+	Similar to the "Flying Wing", we would take the boarding strategy that could make the best use of aisle space. Since the two parts don't bother each other, it's clear that $\Gamma=\max \left\{\Gamma_\text{former}, \Gamma_\text{latter}\right\}+\Gamma_{\text{first class}}$. The picture below shows the map we've drawn of the first half of this plane.
+
+	\begin{center}
+		\includegraphics[height = 5cm]{fsthlf.jpg}
+
+		\small\textit{Fig. 35 First-half passenger influx}
+	\end{center}
+
+	For the calculations of each block, we take it as an analogy to the \defword{Flying Wing} aircraft. The only difference is that in this type of aircraft, there are two block-aisles and the length of the block are respectively cut into shorter lengths.
+
+	After a series of calculations, we find that the boarding time of the first half is 2026 time steps while that of the latter half is 1862 time steps, and the boarding time for the first class is 309 time steps. So the final result is 2335 time steps.
+	\section{Strengths and Weaknesses}
+	\subsection*{Strengths}
+	\begin{itemize}
+		\itembf{Accuracy}
+
+		In our model, we take several special situations into consideration. Also, we use several programs to facilitate our calculation. This makes our result reasonable and precise.
+		\itembf{Universality}
+
+		In our model, we succeeded in achieving visualization of the plane and successfully simulated the whole process of different boarding methods (Some of the examples are shown in \defword{Appendix}). This means that our model can be applied to a variety of problems.
+		\itembf{Efficiency}
+
+		As shown in \defword{Model 2}, we use a progam to facilitate our calculations in finding the best strategy. Therefore, ther's a lot of time saved and proofs that our model has efficiency.
+	\end{itemize}
+	\subsection*{Weaknesses}
+	\begin{itemize}
+		\itembf{Complexity}
+
+		We introduce a great many variables and a variety of explanations in our model. Some of them are a little bit abstract and some of our calculations conducted by programs aren't shown in this essay. This will make our model more complex and less easy to understand.
+		\itembf{Difficulty to operate}
+
+		As can been seen in the descriptions above, our model provides a plan which have some details which must be strictly obeyed. This will increase the difficulty for the crews to let every passenger be aware of the rules.
+	\end{itemize}
+
+
+
+
+	\newpage
+
+	\clearpage
+	\thispagestyle{empty}
+	\section{Letter to the Airline Executive}
+	\noindent Dear airline executive:
+
+	We are the \defword{IMMC Mathematical Modeling Group}.  It gives us great pleasure to give some suggestions to you about these two procedures based on our model.
+
+	To begin with, we want to talk about boarding. There are some basic instructions you need to follow.
+
+	\begin{itemize}
+		\itembf{Hommization.}
+
+		Firstly, try a boarding method that minimizes the time a passenger spends on offering his/her seat, and thus lowering anxiety and annoyance of unnecessary seat-offering.
+
+  		Secondly, make sure that families or friends board in succession. Please first make sure whether they take adjacent seats. What's more, families with the young should righteously board together.
+		\itembf{Efficiency.}
+
+		Nobody likes being stuck in a queue for too long. Therefore, efficiency  is crucial. After calculations, we've got a solution! We call it 'Back to front, section by section, and window middle aisle'.
+
+		Before boarding, each passenger should first get a 'boarding' number. We suggest the plane be divided into three sections, with boarding sequence from back to front (boarding number 1, 2, and 3).  The following diagram gives the optimal strategy:
+		\begin{center}
+			\includegraphics[width=12cm]{advice-ver3.jpg}
+		\end{center}
+	\end{itemize}
+
+	Also, here are some small tips we've concluded from our model:
+	\begin{enumerate}
+		\itembf{If there are several aisles in your plane, avoid blocks in main aisles.}
+
+		General aisles are especially important in the whole boarding process. It actually controls other branch aisles. Therefore, you must make sure the general aisles are not blocked.
+		\itembf{Provide enough space for luggages.}
+
+		Nowadays, to save cost on consignment, many passengers may choose to bring their luggages with them to the plane. If there isn't enough place for luggages, passengers may spend more time on dealing with their luggages.
+		\itembf{Prevent queue-jumping.}
+
+		For structured boarding schemes such as the process introduced above, even a tiny portion of passengers who swap their sequences in the initial queue can have a dramatic effect on the overall boarding time. Therefore, passengers should strictly follow their boarding groups in advance to avoid such incidents.
+	\end{enumerate}
+
+	As for the disembarking part, our suggestion is that you needn't worry much about it. According to the result we've got, the best plan is actually let passengers get "stuck" in the aisle in order! Under this circumstance, all that you need to do is actually let the passengers bear their seat number in mind, which is not a difficult thing to do.
+	Hope that our suggestions can help you, looking foward to your reply!
+
+
+	Yours sincerely,
+
+	\defword{IMMC Mathematical Modeling Group}
+
+
+	\newpage
+	\thispagestyle{empty}
+	%\setcounter{page}{\wholepages}
+	\renewcommand\refname{References}
+	\addcontentsline{toc}{section}{References}
+	\tolerance=500
+	\begin{thebibliography}{100}
+	\bibitem{passenger} \textit{Lorentzian-geometry-based analysis of airplane boarding policies,highlights “slow passengers first” as better},
+	Sveinung Erland, Jevgenijs Kaupužs, Vidar Frette, Rami Pugatch and  Eitan Bachmat
+	\bibitem{steffen} \textit{The best way to load a passenger plane}, Jason Palmer\\
+	https://www.bbc.com/news/science-environment-14717695
+	\bibitem{greenshields} \textit{Greenshields Model}, Traffic Theory\\
+	https://www.webpages.uidaho.edu/niatt\_labmanual/\\chapters/trafficflowtheory/theoryandconcepts/GreenshieldsModel.htm
+	\bibitem{disembarking} \textit{What is the best way to deboard an airplane}, Everything Aviation\\
+	https://everything-aviation.org/what-should-we-all-do-when-getting-off-a-plane
+	\end{thebibliography}
+
+	\newpage
+	\cleardoublepage
+	\thispagestyle{empty}
+	\renewcommand\refname{Appendix}
+	\tolerance=500
+	\Huge \textbf{Appendix}
+	\\[0.8cm]
+	\normalsize These graphics are mainly about the visualized results of the optimal strategies we've got in our model.
+	\\[2pt]
+	\large \textbf{Back to Front}
+	\begin{center}
+		\includegraphics[width=14cm]{backtofront1.jpg}\\
+		\includegraphics[width=14cm]{backtofront2.jpg}\\
+		\includegraphics[width=14cm]{backtofront3.jpg}\\
+		\clearpage
+		\thispagestyle{empty}
+		\includegraphics[width=14cm]{backtofront4.jpg}\\
+	\end{center}
+	\large \textbf{Window Middle Aisle}
+	\begin{center}
+		\includegraphics[width=14cm]{wdmd1.jpg}\\
+		\includegraphics[width=14cm]{wdmd2.jpg}\\
+		\includegraphics[width=14cm]{wdmd3.jpg}\\
+	\end{center}
+	\large \textbf{Random}
+	\begin{center}
+		\clearpage
+		\thispagestyle{empty}
+		\includegraphics[width=14cm]{random1.jpg}\\
+		\includegraphics[width=14cm]{random2.jpg}\\
+		\includegraphics[width=14cm]{random3.jpg}\\
+	\end{center}
+	\large \textbf{The Flying Wing Aircraft}
+	\begin{center}
+		\clearpage
+		\thispagestyle{empty}
+		\includegraphics[width = 14cm]{fw1.png} \\
+		\includegraphics[width = 14cm]{fw2.png} \\
+		\clearpage
+		\thispagestyle{empty}
+		\includegraphics[width = 14cm]{fw3.png} \\
+		\includegraphics[width = 14cm]{fw4.png} \\
+		\clearpage
+		\thispagestyle{empty}
+		\includegraphics[width = 14cm]{fw5.png} \\
+	\end{center}
+	\large \textbf{Two-Entrance, Two-Aisle (three forms)}
+	\begin{center}
+		\includegraphics[width = 14cm]{doubleaisle1.jpg} \\
+		\includegraphics[width = 14cm]{doubleaisle2.jpg} \\
+		\clearpage
+		\thispagestyle{empty}
+		\includegraphics[width = 14cm]{doubleaisle3.jpg} \\
+		\includegraphics[width = 14cm]{doubleaisle4.jpg} \\
+
+	\end{center}
+\end{document}
