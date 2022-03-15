@@ -1,0 +1,41 @@
+The most common way of boarding passenger planes is among the least efficient, tests have shown.
+
+The best method has been the subject of study for years but now various approaches have been put to the test.
+
+Boarding those in window seats first followed by middle and aisle seats results in a 40% gain in efficiency.
+
+However, an approach called the Steffen method, alternating rows in the window-middle-aisle strategy, nearly doubles boarding speed.
+
+The approach is named after Jason Steffen, an astrophysicist at Fermi National Laboratory in Illinois, US. Dr Steffen first considered the thorny problem of plane boarding in 2008, when he found himself in a long boarding queue.
+
+He carried out a number of computer simulations to determine a better method than the typical "rear of the plane forwards" approach, publishing the results in the Journal of Air Transport Management.
+
+Several authors had already proposed an order in which those seated in window seats boarded first, followed by middle seats and then aisle seats - dubbed the Wilma method. But Dr Steffen's best results suggested a variant of this.
+
+He suggested boarding in alternate rows, window seats first, progressing from the rear forward: seats 12A, for example, followed by 10A, 8A and so on, then returning for 9A, 7A, 5A and so on, and then filling the middle and aisle seats in the same way.
+
+The approach avoids a situation in which passengers are struggling to use the same physical space at the same time.
+
+Only now, though, has the idea been put to the test. Jon Hotchkiss, a television producer making a show called This v That, began to consider the same problem of boarding efficiency and came across Dr Steffen's work.
+
+Mr Hotchkiss contacted Dr Steffen, offering to test the idea using a mock-up of a 757 aeroplane in Hollywood and 72 luggage-toting volunteers.
+
+The pair tested five different scenarios: "block" boarding in groups of rows from back to front, one by one from back to front, the "Wilma method", the Steffen method, and completely random boarding.
+
+In all cases, parent-child pairs were permitted to board first - reflecting the fact that regardless of the efficiency of any boarding method, families will likely want to stay together.
+
+The block approach fared worst, with the strict back-to-front approach not much better.
+
+Interestingly, a completely random boarding - as practised by several low-cost airlines that have unallocated seating - fared much better, presumably because it randomly avoids space conflicts.
+
+But the Wilma method and the Steffen method were clear winners; while the block approach required nearly seven minutes to seat the passengers, the Steffen method took just over half that time.
+
+Dr Steffen said that broadly, the results aligned with the predictions he made in 2008.
+
+"As far as the actual amount of time it took to fill the plane, the times didn't agree - because I didn't know how long it took people to put their luggage away and walk down the aisle," he told BBC News.
+
+"The basic conclusions I drew were realised; the method I proposed did the best, and the other ones landed where I would've predicted."
+
+Dr Steffen will now get back to his usual work, putting together plans to find planets around other stars using the Kepler space telescope. But he hopes that commercial airlines will take an interest in his approach - especially given that he estimates it could save them millions.
+
+"I haven't received a phone call yet, but the day is young, so maybe that will change," he said.
