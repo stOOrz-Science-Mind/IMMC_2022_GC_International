@@ -1,0 +1,2 @@
+time_step,passenger_sequence,target_x,target_y,current_x,current_y,current_cell,state
+4391,188,31,-1,25.66666666666036,0.0,6,0
