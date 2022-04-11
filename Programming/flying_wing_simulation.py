@@ -5,6 +5,18 @@ import shutil
 
 f = open('log.txt', 'w')
 
+csv_index_row = ['time_step',
+                 'passenger_sequence',
+                 'target_x',
+                 'target_y',
+                 'current_x',
+                 'current_y',
+                 'current_cell',
+                 'state']
+
+csv_titles = [f'H:/stOOrz-Mathematical-Modelling-Group/IMMC_2022_International/Programming/fw_example/log{i}.csv' for i
+              in range(10001)]
+
 
 class passenger:
     def __init__(self, target_x=0, target_y=0, curx=0.00, cury=0.00, sequence=0, state=0, velocity=0,
@@ -239,7 +251,7 @@ for i in range(PASSENGER_NUM):
 
 def get_blockk_velocity(pasng):
     cnt = 0
-    bl = passenger_set[i].target_block
+    bl = pasng.target_block
     for i in range(get_block_cell(pasng) + 1, max(get_block_cell(pasng), BLOCK_AISLE_LENGTH - 1)):
         if is_anyone_in_block_cell(bl, i):
             cnt = cnt + 1
@@ -248,6 +260,12 @@ def get_blockk_velocity(pasng):
 
 time_step = 0
 while len(finished) != PASSENGER_NUM:
+
+    outputFile = open(csv_titles[time_step], 'w', newline='')
+    outputWriter = csv.writer(outputFile)
+    outputWriter.writerow(csv_index_row)
+
+
     time_step = time_step + 1
     if time_step % 100 == 0:
         print(finished)
@@ -260,12 +278,13 @@ while len(finished) != PASSENGER_NUM:
             if passenger_set[i].state == 0:
                 if passenger_set[i].aisle_state == 0:
                     passenger_set[i].cury = passenger_set[i].cury + passenger_set[i].velocity * SIMULATION_TAU
-                    # passenger_set[i].cury = passenger_set[i].cury-0.1
+                    # passenger_set[i].cury = passenger_set[i].cury+0.1
                     passenger_set[i].velocity = get_velocity(passenger_set[i])
 
                     if is_at_block(passenger_set[i]):
                         # passenger_set[i].velocity =0.8
                         passenger_set[i].cury = 7 * passenger_set[i].target_block - 3
+                        # passenger_set[i].curx = passenger_set[i].curx + 0.1
                         passenger_set[i].aisle_state = passenger_set[i].target_block
 
                 else:
@@ -289,5 +308,14 @@ while len(finished) != PASSENGER_NUM:
                 finished.append(i)
         else:
             continue
-
+        outputWriter.writerow([time_step,
+                               passenger_set[i].sequence,
+                               passenger_set[i].target_x,
+                               passenger_set[i].target_y,
+                               passenger_set[i].curx,
+                               passenger_set[i].cury,
+                               '{L}',
+                               passenger_set[i].state])
+        # outputWriter.writerow([f'test{i}'])
+    outputFile.close()
 print(time_step)
