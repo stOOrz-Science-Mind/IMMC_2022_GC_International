@@ -158,3 +158,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.gz
