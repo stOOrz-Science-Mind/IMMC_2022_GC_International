@@ -4,7 +4,7 @@ Control Number: IMMC22768821
 
 Title: Boarding and Disembarking a Plane
 
-Results: Entering Final Presentation, Outstanding
+Results: Entering Final Presentation
 
 
 ## I. Above all are placed below the official websites and relavent rules:
