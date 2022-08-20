@@ -1,44 +1,28 @@
 \documentclass{article}
-\usepackage{allan}
+\usepackage{allanmathmodelling}
 \usepackage{lastpage}
 \usepackage{algorithmic}
 \usepackage{algorithm}
+\usepackage{wallpaper}
 \usepackage{indentfirst}
-%\RequirePackage{graphics}
-% Replace ABCDEF in the next line with your chosen problem
-% and replace 111111 with your Team Control Number
-% and replace abcdef with your Title
-% and replace 123456 with the number of pages of your essay
+
 \setlength{\headheight}{70pt}
 \newcommand{\Title}{Boarding and Disembarking a Plane}
 \newcommand{\Team}{22768821}
 \newcommand{\Problem}{}
-\def\mathbi#1{\textbf{\em #1}}
-%\newcommand{\itembf}{\item \textbf}
 \title{\Huge\textbf{\Title}}
 \author{Team\#\Team}
 \date{\today}
 \newcommand{\Lastpage}{19}
 
+
+\title{\textbf{\color{allandarkblue}\Title}}
+\author{\textbf{Allan Pan}}
+\date{\textbf{\today}}
+
 \newcommand{\cA}{\color{allanblue}Constant A\color{black}}
 \newcommand{\cB}{\color{allandarkblue}Constant B\color{black}}
 \newcommand{\varr}{\color{allanpurple}Variable\color{black}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% set up of theorems
-
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition}
-\theoremstyle{remark}
-\newtheorem{rem}[thm]{Remark}
-\numberwithin{equation}{section}
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}{Definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % setup of page length and script size
@@ -55,61 +39,29 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\lhead{
-%   \parbox{5cm}{
-%        \begin{center}
-%            Problem Chosen \\[0.2cm]
-%            \textbf{\Huge{A}}
-%        \end{center}
-%    }
-%}
-%\chead{
-%    \parbox{5cm}{
-%        \textbf{
- %           \begin{center}
-%               2022 \\
-%                MCM \\
-%                Summary Sheet
-%            \end{center}
-%        }
-%    }
-%}
-%\rhead{
-%    \parbox{5cm}{
-%        \begin{center}
-%            Team Control Number \\[0.2cm]
-%            \textbf{\Huge{2226594}}
-%        \end{center}
-%    }
-%}
-\cfoot{}
-%IMMC Template
-\chead{
-    \parbox{5cm}{
-        \textbf{
-           \begin{center}
-				Team Control Number\\[10pt]
-				\textbf{\begin{Huge}\Team\end{Huge}}\\
-				%Problem Chosen\\
-				%\textbf{\Problem}\\
-                2022 \\
-                IMMC \\
-                Summary Sheet
-            \end{center}
-        }
-    }
-}
 
 \begin{document}
-	\normalfont\fontfamily{qpl}\selectfont
-    %\begin{center}
-    %    \textbf{\large Summary}
 
-    %\end{center}
-	%%%%%%%%%%% Begin Summary %%%%%%%%%%%%%%%%%%
-	% Enter your summary here replacing the (red) text
-	% Replace the text from here ...
+	\maketitle
+    \ThisCenterWallPaper{1}{cover-stoorz.pdf}
+	\newpage
+	\normalfont\fontfamily{qpl}\selectfont
+
+	\chead{
+		\parbox{5cm}{
+			\textbf{
+			\begin{center}
+					Team Control Number\\[10pt]
+					\textbf{\begin{Huge}\Team\end{Huge}}\\
+					%Problem Chosen\\
+					%\textbf{\Problem}\\
+					2022 \\
+					IMMC \\
+					Summary Sheet
+				\end{center}
+			}
+		}
+	}
 	\qquad
 	\par
 	~~
@@ -124,8 +76,8 @@
 
 	Last but not least, we performed a series of sensitivity analysis on the model. We altered passengers' physical attributes such as their luggage-stowing time and queue-jumping percentage based on the 'sigmoid function' in statistics, keeping track of the standard deviation and average of the altered parameter sets. The result turned out that those with 'stability' such as the relatively organized back-to-front boarding method are less sensitive to these disturbance factors than those with more degrees of freedom such as unstructured boarding.
 
-	In conclusion, though inefficient compared with many other possible boarding methods, back-to-front boarding is structured and fundamentally stable, minimizing the impacts of unexpected turbulence on the boarding process, therefore satisfying both passengers and airline companies with only a slight compromise of speed. 
-	
+	In conclusion, though inefficient compared with many other possible boarding methods, back-to-front boarding is structured and fundamentally stable, minimizing the impacts of unexpected turbulence on the boarding process, therefore satisfying both passengers and airline companies with only a slight compromise of speed.
+
 	%end Summary
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% real document begins
@@ -153,7 +105,7 @@
     \newpage
     \pagestyle{fancy}
     \setcounter{page}{1}
-	
+
 	\newpage
 	\section{Introduction}
 	\subsection{Background}
@@ -162,7 +114,7 @@
 	There are a variety of boarding and disembarking methods used by air companies now. In one plan, passengers appear in the plane with no plans devised in advance. In other strategies, passengers enter the plane according to their row numbers, seat positions or priority (E.g. first class \& economic class), etc. However, not all of the passengers obey the rules, so there emergency events occur from time to time.
 
 	While boarding a plane, passengers will first go to their assigned seat, put their luggage on the rack and then get seated. While a passenger stowing their bags, other travellers who are stuck behind in the queue and haven't reached their target seats should wait until the passenger finishes the process, resulting in a queue. The image below descibes the process in which the passengers placing the bags cause a queue.
-	
+
 	\begin{center}
 		\includegraphics[width=14cm]{chart.jpg}
 
@@ -182,19 +134,19 @@
 	\subsection{General Assumptions}
 	\begin{enumerate}
 		\itembf{For each passenger, their luggage is put on the rack above them.}
-		
+
 		Airlines usually ensure this fact to minimize unnecessary congestion.
 		\itembf{For a certain passenger, the time to lay down his luggage and the time to remove it is the same.}
-		
+
 		This process can be mathematically acknowledged as \defword{reversible} (Consider when time relapses).
 		\itembf{The total width of a passenger and his luggage is similar to the width between rows.}
-		
+
 		To provide the passengers with the best flying experience, the flying company need to find a width between rows which will both satisfy the needs of people and maximize the plane's capacity.
 		\itembf{All passengers walk in the same speed on the aisles.}
-		
+
 		Though there are energy difference caused by age and sex, there is slight difference of walking velocity when different passengers walk on a plane searching for their assigned seat. Therefore, we can neglect the difference and assume that all the passengers have the same ideal velocity.
 		\itembf{Passengers never go backward.}
-		
+
 		Most passengers are concentrated on finding their seat most. Therefore, they seldom miss their way and try to move backward.
 		\itembf{First and business class passengers are prioritized with respect to those of the economic class.}
 
@@ -212,7 +164,7 @@
 
 		Since $d$ (the width between rows, or the length of a cell) is taken as 0.8$\mathrm{m}$, a very small distance, there won't be a big difference in velocity change when a passenger is moving in the cell. Therefore, we can assume that $v$ in a certain block won't change.
 		\itembf{There is enough space in the asile so that everty passenger can walk at their maximum speed.}
-		
+
 		To provide their customers with the best flying experience, flying agencies usually make the aisle wide enough.  Therefore, we can assume that there is enough space for the passengers to miantain their speed.
 	\end{enumerate}
 	\subsection{Notice}
@@ -509,16 +461,16 @@ d
 
 	\subsection{Analysis of Different Ways of Boarding}
 	In this part, we will introduce some common ways of boarding and find out their effiencies based on the $\Gamma$ and $\alpha_\text{satisfy}$ of it. The picture below shows the plane we use to assess the boarding process.
-	
+
 	\begin{center}
 		\includegraphics[height=5cm]{planeempty.jpg}
-		
+
 		\small \textit{Fig. Basic plane type}
 	\end{center}
 
 	\subsubsection{Introduction of Conventional Boarding Methods}
 	The first method is based on row numbers. People enter the plane according to their row number. The plane is divided into several crosswide sections.or example, in one plan, a passenger with a smaller row number can be seated earlier and in other plane, he will enter later. We conclude these types as "front to back" and "back to front".
-	
+
 	The second method is to board on plane according to their seat positions. The plane is divided into lengthways sections in this strategy. This time, passengers whose seats are A or F may enter the plane first to minimize the time wasted in offering seats.
 
 	The third method, window-middle-aisle boarding, lets passengers board according to an inner-to-outer sequence. We subdivide this method into another three forms: random, front to back, and back to front, which respectively indicate the boarding sequence in each \textit{window, middle or aisle} section. This plan can effectively reduce the total disembarking time as people no lobger need to worry about offering their seat to others. Although it may make people unsatisfied (the reason will be introduced in the next model), it does save time.
@@ -526,7 +478,7 @@ d
 	Another way of boarding is letting the passengers get onboard in an unstructured way, which means that the boarding order is random. The picture below shows the whole process of this boarding method.
 
 	The four pictures below can effectively explain the methods.
-	
+
 	\begin{center}
 		\includegraphics[height=5cm]{planerow1.jpg}
 		\includegraphics[height=5cm]{planerow2.jpg}\\
@@ -560,10 +512,10 @@ d
 
 	Apart from the common ways used by air executives introduced above, we also figure out some plans of our own and proposed by others. The strategies are as follow.
 	\begin{itemize}
-		\item The first plan introduced is the Steffen Perfect\cite{steffen}. In this mode, passengers will board the plane from the inner seat to the outer seat, from the rear to the front and in separate rows. Because the passengers sitting on the back and inside board first, there will be no queueing caused by the luggage of the front passengers and the situation that the outer passengers give up their seats for the inner passengers, which effectively reduces the waste of time caused by congestion and seat giving. At the same time, when boarding, passengers who put their luggage generally need to occupy the aisle next to two rows of seats. Therefore, it can be proved that sitting in separate rows is a seating method with the highest parallel efficiency, which can allow the most passengers to sit in parallel. Taken together, this shows that Steffen Perfect is a great boarding strategy. 
-		
+		\item The first plan introduced is the Steffen Perfect\cite{steffen}. In this mode, passengers will board the plane from the inner seat to the outer seat, from the rear to the front and in separate rows. Because the passengers sitting on the back and inside board first, there will be no queueing caused by the luggage of the front passengers and the situation that the outer passengers give up their seats for the inner passengers, which effectively reduces the waste of time caused by congestion and seat giving. At the same time, when boarding, passengers who put their luggage generally need to occupy the aisle next to two rows of seats. Therefore, it can be proved that sitting in separate rows is a seating method with the highest parallel efficiency, which can allow the most passengers to sit in parallel. Taken together, this shows that Steffen Perfect is a great boarding strategy.
+
 		\item Another optimal boarding strategy is to divide the plane into five parts (demonstrated in the picture below). This strategy combine all the strengths together: it can perfectly reduce the time of offering seats, queueing and raise the passenger's satisfactory index. However, this may also lead to some other problems.
-		
+
 		\begin{center}
 			\includegraphics[height=5cm]{planeown.jpg}
 		\end{center}
@@ -635,11 +587,11 @@ d
 	From this we can find the following facts:
 	\begin{enumerate}
 		\itembf{Boarding randomly is far more sensitive than boarding from front to back.}
-		
+
 		This may be because the former has no order. Under this circumstance, any uninstructed behavior will disrupt the whole process more that the effect on the latter one.
 		\itembf{"Back to front" method is not so sensitive to uninstructed passengers.}
-		
-		It's easy to see from the datat we've got that this method won't be effected dramatically by sudden changes and  it's time cost is still much lower  than the other one's. 
+
+		It's easy to see from the datat we've got that this method won't be effected dramatically by sudden changes and  it's time cost is still much lower  than the other one's.
 	\end{enumerate}
 	%\begin{center}
 		%\includegraphics[width=6cm]{sigmoid.png}
@@ -670,7 +622,7 @@ d
 	\subsection{Short Passenger Cabin}
 	The problem of not having enough space for aisles is actually easy to solve. Same as the disembarking process, if all the passengers are put into order and  are stuffed in the aisle. Thier speed won't be affected. Moreover, we can find that the whole lengths of this plane has been reduced, which means $T(A)$ won't change dramatically. The only difference may be the seats have been narrower, which means $\varepsilon(A)$ has decreased. Therfore, we  can without doubt use the same strategy as the normal plane types.
 	\subsection{Flying Wings}
-	Flying  wings is a special kind of plane. Different from others, it's especially spacious and can accomodate a great number of people. It's shape is shown below. 
+	Flying  wings is a special kind of plane. Different from others, it's especially spacious and can accomodate a great number of people. It's shape is shown below.
 
 	Though we define the plane as several rectangle cells, passengers can still travel in arctangles in this kind of plane. We can find that:
 	$$\left| s_{\mathrm{prev}}-s_{\mathrm{now}} \right|=\left| d\sqrt{x^2+\left( \frac{7}{2}d \right) ^2}-\left( x+\frac{7}{2}d \right) d \right|\\\le \left| d\sqrt{l^2+\left( \frac{7}{2}d \right) ^2}-\left( l+\frac{7}{2}d \right) d \right|\\=\frac{18-2\sqrt{53}}{5}\approx 0.688\mathrm{m}\\$$
@@ -693,10 +645,10 @@ d
 	According to this standard, we propsoed two claims:
 	\begin{enumerate}
 		\itembf{Every passenger should keep himself close to the paassenger in front of him.}
-		
+
 		As the aisle is so narrow that it can only allow one passenger to pass at the same time, we don't need to take the passengers' passing each other into consideration. Under this assumption, we need to find a best strategy for passengers to go through the aisle and get to their own seats. The fastest strategy for the first passenger to board is obviously passing the aisle at the fastest speed to get to his/her seat. And for the other passengers, as they can never pass the passenger ahead, the farthest distance they can reach in $m_0$ time steps is less than that of the passenger ahead (because he/she could only stick tight to the passenger ahead and behind that passenger). As a result, we can get that the quickest strategy for every passenger to get to his/her seat is to stick tight to the previous passenger until reaching his/her own seat.
 		\itembf{The most ideal way is to stuff the aisles full of passengers.}
-		
+
 		We can see from the map that there are several aisles in the plane. If we want to minimize the time cost, we must make full use of the space. Based on this claim, our work is actually to find the circumstances where the aisles are stuffed with passengers.Therefore, we introduced the loaded index $\alpha_\text{loaded}$ to describe it's condition (which will be explained in detail in the following part). It will facilitate our calculation: given that the order in this plan is certain, there are only $S$ kinds of ways to determine the boarding time of the next passenger, which will be easy to enumerate.
 	\end{enumerate}
 	\subsubsection{ Calculating \(\alpha_\text{loaded}\)}
@@ -727,22 +679,22 @@ d
 	\subsection*{Strengths}
 	\begin{itemize}
 		\itembf{Accuracy}
-		
+
 		In our model, we take several special situations into consideration. Also, we use several programs to facilitate our calculation. This makes our result reasonable and precise.
 		\itembf{Universality}
-		
+
 		In our model, we succeeded in achieving visualization of the plane and  successfully simulated the whole process of different boarding methods (Some of the examples are shown in \defword{Appendix}).  This means that our model can be applied to a variety of problems.
 	\end{itemize}
 	\subsection*{Weaknesses}
 	\begin{itemize}
 		\itembf{Complexity}
-		
+
 		We introduce a great many variables and a variety of explanations in our model. Some of them are a little bit abstract and some of our calculations conducted by programs aren't shown in this essay. This will make our model more complex and less easy to understand.
 	\end{itemize}
 
-	
-	
-	
+
+
+
 	\newpage
 	\section{Letter to the Airline Executive}
 	\noindent Dear airline executive:
@@ -753,15 +705,15 @@ d
 
 	\begin{itemize}
 		\itembf{Stability.}
-		
+
 		While minimizing total boarding time, the model itself must be solid enough, or in other words, the strategy itself should not change while the relative parameters of passengers change. (For example, even when some passengers bring more luggage with them, it's important to keep the model as it originally was.) The more structured your boarding strategy is, the less an impact will variations in these passenger-based parameters have on the overall time of boarding.
 		\itembf{Hommization.}
-		
+
 		Firstly, try a boarding way that minimizes the time a passenger offers his/her seat, and thus lowering anxiety and annoyance of unnecessary seat-offering. Therefore, it's crucial to make sure that the overall boarding process generally lets passengers near the window board first, and lets those next to the aisle board last. As a result, passengers can get seated with satisfaction and pleasantly start the journey.
 
   		Secondly, make sure that families or friends board in succession. To be more specific, please first check whether passengers in the same line are put together, as passengers familiar with one another tend to choose adjacent seats. What's more, families with the young should righteously board together.
 		\itembf{Efficiency.}
-		
+
 		Nobody likes being stuck in a queue for too long. Therefore, with stability and hommization taken into consideration, please choose the option with the least queuing time (also equivalent to the least overall boarding time). For instance, under the single-aisle scenario, front-to-back boarding is catastrophic, since each person is stowing his/her luggage causes a 'fullstop', with latter passengers not even on the plane, and therefore can do nothing but wait.
 
 		And with these three factors combined, we get a solution! We call it 'Back to front, section by section, and window middle aisle'.
@@ -775,13 +727,13 @@ d
 	Also, here are some small tips we've concluded from our model:
 	\begin{enumerate}
 		\itembf{If there are several aisles in your plane, avoid blocks in general aisles.}
-		
+
 		General aisles are especially important in the whole boarding process. It actually controls other branch aisles. If too much people in the general blocks the way, it may lead to a thorough collapse of this process. Therefore, you must make sure the general aisles are blocked.
 		\itembf{Divide the plane into several sections.}
-		
+
 		If your plane map is especially complicated, don't worry about it! Divide the whole plane into several parts according too it's geometric shape and find out the best strategy seperately based on the suggestions we've given above. Later, combine them all together and implement them seperately.
 		\itembf{Provide enough space  for luggages.}
-		
+
 		Nowadays, to save cost on consignment, many passengers may choose to bring their luggages with them to the plane. If there isn't enough place for luggages, passengers may spend more time on dealing with their luggages. This means more time for others in waiting, which will lead to an increase in the total boarding time (caused by queueing) and a rise in passengers' negative emotions.
 	\end{enumerate}
 
@@ -792,8 +744,8 @@ d
 	\noindent Yours sincerely,
 
 	\noindent \defword{IMMC Mathematical Modeling Group}
-	
-	
+
+
 	\newpage
 	\thispagestyle{empty}
 	%\setcounter{page}{\wholepages}
@@ -801,7 +753,7 @@ d
 	\addcontentsline{toc}{section}{References}
 	\tolerance=500
 	\begin{thebibliography}{100}
-	\bibitem{passenger} \textit{Lorentzian-geometry-based analysis of airplane boarding policies,highlights “slow passengers first” as better}, 
+	\bibitem{passenger} \textit{Lorentzian-geometry-based analysis of airplane boarding policies,highlights “slow passengers first” as better},
 	Sveinung Erland, Jevgenijs Kaupužs, Vidar Frette, Rami Pugatch and  Eitan Bachmat
 	\bibitem{steffen} \textit{The best way to load a passenger plane}, Jason Palmer\\
 	https://www.bbc.com/news/science-environment-14717695
